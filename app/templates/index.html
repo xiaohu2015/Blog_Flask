@@ -1,0 +1,36 @@
+{% extends "base.html" %}  <!-- 导入模板-->
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Flasky - Home{% endblock  %}
+
+{% block page_content %}
+    <div class="page-header">
+     <h2>Hello,{% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h2>
+   </div>
+<div>
+    {% if current_user.can(Permission.WRITE_ARTICLES) %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+</div>
+<div class="post-tabs">
+    <ul class="nav nav-tabs">
+        {% if current_user.is_authenticated %}
+        <li {% if not show_followed %} class="active"
+            {% endif %} ><a href="{{ url_for('.show_all') }}">All</a></li>
+
+        <li {% if show_followed %} class="active" {% endif %}><a href="{{ url_for('.show_followed') }}">Followers</a></li>
+        {% endif %}
+    </ul>
+    {% include '_posts.html' %}
+</div>
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.index') }}
+</div>
+{% endif %}
+{%- endblock  %}
+{%  block scripts  %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}}
