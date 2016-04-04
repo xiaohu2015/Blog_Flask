@@ -10,7 +10,7 @@ class Config:
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     #FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
-    FLASKY_ADMIN = '393499788@qq.com'
+    FLASKY_ADMIN = 'example@qq.com'
     @staticmethod
     def init_app(app):
         pass
@@ -21,8 +21,8 @@ class DevelopmentConfig(Config):
     MAIL_USE_TLS = True
     #MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     #MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    MAIL_USERNAME = 'xiaohuzc@gmail.com'
-    MAIL_PASSWORD = '20151227yh'
+    MAIL_USERNAME = 'example@gmail.com'
+    MAIL_PASSWORD = 'password'
     #SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
     #   'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
     SQLALCHEMY_DATABASE_URI = 'sqlite:///E:/Python_project/Flasky/data.sqlite'
