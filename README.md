@@ -1,2 +1,3 @@
-# Flasky
-a web blog implemented by flask library in Python
+# A blog web application
+This a web blog app implemented by flask library in Python
+
